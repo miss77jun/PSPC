@@ -1064,7 +1064,7 @@ void ClassicAbinitio::apply( pose::Pose & pose ) {
 
 char* ClassicAbinitio::format(double value)
 {
-		char *temp = new char[20];
+		char *temp = new char[50];
 		sprintf(temp, "%10.3f", value);
 		return temp;
 
