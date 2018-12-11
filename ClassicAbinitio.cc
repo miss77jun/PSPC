@@ -606,21 +606,7 @@ void ClassicAbinitio::apply( pose::Pose & pose ) {
 										   << format( (*score_stage4_)( trial_current ) ) << "\n";
 						current_count = 0;
 						accepted_count ++;    			
-//	    			//record decoys for clustering									 
-//		    		if( ((float)g / GMAX2) >	cluster_propotion	)
-//		    			{
-//			    			const int COUNT_MAX = 20000;
-//								if( count_decoy_spicker < COUNT_MAX )
-//								{
-//										count_decoy_spicker ++;
-//								}
-//								else
-//								{
-//										count_decoy_spicker = 1;
-//										file_num ++;
-//								}
-//								output_spicker( trial_temp );
-//		    			}
+
 			  	}
 		  	else
 				{
@@ -708,8 +694,8 @@ void ClassicAbinitio::apply( pose::Pose & pose ) {
 										file_num ++;
 								}
 								output_spicker( trial_temp );
-		    			}
-	    			} */
+		    			}*/
+	    			} 
 				}
 				}
 				population[i] = trial_current;
@@ -720,11 +706,11 @@ void ClassicAbinitio::apply( pose::Pose & pose ) {
 		average_rmsd_energy << format( average_rmsd ) << ","
 							<< format( average_energy) << "\n";
 		if( g % 3 == 0 ) average_rmsd_energy.flush();//clear buffer
-		output_status_info( timeinfo , g , GMAX2);	
+		output_status_info( timeinfo , g , GMAX + GMAX2);	
 		contact_dis( population, RaptorXcontact );
 		
 	}//end population evolution
-	cout << "End stage1. Start contact based perturbation.\n"; */
+	cout << "End stage1. Start contact based perturbation.\n"; 
 	//out put the information of the last generation
 	ofstream rmsd_energy_after_stage1("rmsd_energy_after_stage1.csv");
 	for (Size i = 0; i < NP; i ++)
