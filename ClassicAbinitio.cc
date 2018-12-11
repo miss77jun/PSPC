@@ -453,7 +453,7 @@ void ClassicAbinitio::apply( pose::Pose & pose ) {
 	file_num = 1;
 	spicker_file( pose );
 	//initialization population
-	const Size NP = 300;//100
+	const Size NP = 100;//100
 	const Size GMAX = 300;//contact score
 	const	Size GMAX2 = 100;//contact ditribution 
 	//test	
@@ -605,8 +605,7 @@ void ClassicAbinitio::apply( pose::Pose & pose ) {
 						accept_rmsd_energy << format( core::scoring::CA_rmsd( native_pose_temp, trial_current ) )  << ","
 										   << format( (*score_stage4_)( trial_current ) ) << "\n";
 						current_count = 0;
-						accepted_count ++;
-	    			
+						accepted_count ++;    			
 //	    			//record decoys for clustering									 
 //		    		if( ((float)g / GMAX2) >	cluster_propotion	)
 //		    			{
@@ -661,7 +660,7 @@ void ClassicAbinitio::apply( pose::Pose & pose ) {
 													   << "fragment_assembly_part_small" << "\n";
 	    											   
 		    		//record decoys for clustering									 
-		    		if( ((float)g / GMAX2) >	cluster_propotion	)
+/* 		    		if( ((float)g / GMAX2) >	cluster_propotion	)
 					{
 						const int COUNT_MAX = 20000;
 						if( count_decoy_spicker < COUNT_MAX )
@@ -674,7 +673,7 @@ void ClassicAbinitio::apply( pose::Pose & pose ) {
 								file_num ++;
 						}
 						output_spicker( trial_temp );
-					}
+					} */
 	    		}
 	    	//energy function evolution
 				//mutation: fragment assembly, length 9
@@ -696,7 +695,7 @@ void ClassicAbinitio::apply( pose::Pose & pose ) {
 													   << "fragment_assembly_part_large" << "\n";
 	    											   
 		    		//record decoys for clustering									 
-		    		if( ((float)g / GMAX2) >	cluster_propotion	)
+/* 		    		if( ((float)g / GMAX2) >	cluster_propotion	)
 		    			{
 			    			const int COUNT_MAX = 20000;
 								if( count_decoy_spicker < COUNT_MAX )
@@ -710,7 +709,7 @@ void ClassicAbinitio::apply( pose::Pose & pose ) {
 								}
 								output_spicker( trial_temp );
 		    			}
-	    			}
+	    			} */
 				}
 				}
 				population[i] = trial_current;
@@ -725,7 +724,7 @@ void ClassicAbinitio::apply( pose::Pose & pose ) {
 		contact_dis( population, RaptorXcontact );
 		
 	}//end population evolution
-	cout << "End stage1. Start contact based perturbation.\n";
+	cout << "End stage1. Start contact based perturbation.\n"; */
 	//out put the information of the last generation
 	ofstream rmsd_energy_after_stage1("rmsd_energy_after_stage1.csv");
 	for (Size i = 0; i < NP; i ++)
